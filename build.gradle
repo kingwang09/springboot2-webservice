@@ -11,10 +11,10 @@ buildscript {
     }
 }
 
-apply plugin 'java'
-apply plugin 'eclipse'
-apply plugin 'org.springframework.boot'
-apply plugin 'io.spring.dependency-management'
+apply plugin : 'java'
+apply plugin : 'eclipse'
+apply plugin : 'org.springframework.boot'
+apply plugin : 'io.spring.dependency-management'
 
 group 'com.christoper.jin'
 version '1.0-SNAPSHOT'
