@@ -3,6 +3,7 @@ package com.christoper.jin;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * @Class Application
@@ -18,6 +19,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * ------------------------------------------------------------------------
  * 2020. 4. 14. || 진형은 || 최초생성
  */
+@EnableJpaAuditing
 @SpringBootApplication
 public class Application {
   public static void main(String[] args){

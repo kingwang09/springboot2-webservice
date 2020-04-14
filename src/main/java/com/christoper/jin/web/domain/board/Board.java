@@ -1,5 +1,7 @@
 package com.christoper.jin.web.domain.board;
 
+import com.christoper.jin.support.BaseTimeEntity;
+import com.christoper.jin.web.dto.BoardDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,7 +24,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Board {
+public class Board extends BaseTimeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) //GenerationType 차이점에 대해 알아보기
   private Long id;
@@ -40,5 +42,11 @@ public class Board {
     this.title = title;
     this.content = content;
     this.author = author;
+  }
+
+  public void update(BoardDto boardDto) {
+    this.title = boardDto.getTitle();
+    this.content = boardDto.getContent();
+    this.author = boardDto.getAuthor();
   }
 }
