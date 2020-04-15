@@ -15,3 +15,4 @@
   - spring.security.oauth2.client.registration.google.scope=profile,email
 - Google OAuth2 구현
 - 왜 Git 활동이력이 안남는가
+- 이거 git config email로 활동이력을 추적하는듯함.
