@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/board")
-public class BoardController {
+public class BoardApiController {
 
   private final BoardService boardService;
 

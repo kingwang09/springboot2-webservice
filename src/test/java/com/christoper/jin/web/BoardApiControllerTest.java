@@ -37,7 +37,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class BoardControllerTest {
+public class BoardApiControllerTest {
 
   private final String ROOT_URL = "http://localhost:";
   private final String BOARD_URL = "/api/v1/board";

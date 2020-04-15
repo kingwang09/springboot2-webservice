@@ -4,10 +4,13 @@ import com.christoper.jin.web.domain.board.Board;
 import com.christoper.jin.web.domain.board.BoardRepository;
 import com.christoper.jin.web.dto.BoardDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @Class BoardService
@@ -43,5 +46,10 @@ public class BoardService {
     Board board = repository.findById(id).orElseThrow(() -> new RuntimeException("없다이."));
     board.update(boardDto);
     return board.getId();
+  }
+
+  public List<BoardDto> getList() {
+    List<Board> boardList = repository.findAll(Sort.by(Sort.Order.desc("id")));
+    return boardList.stream().map(BoardDto::new).collect(Collectors.toList());
   }
 }

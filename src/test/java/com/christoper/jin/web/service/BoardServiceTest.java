@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -48,5 +50,13 @@ public class BoardServiceTest {
     assertThat(boardDto.getTitle()).isEqualTo(title);
     assertThat(boardDto.getContent()).isEqualTo(content);
     assertThat(boardDto.getAuthor()).isEqualTo(author);
+  }
+
+  @Test
+  public void 전체조회(){
+    게시글추가();
+
+    List<BoardDto> boardDtoList = boardService.getList();
+    assertThat(boardDtoList.size()).isEqualTo(1);
   }
 }
