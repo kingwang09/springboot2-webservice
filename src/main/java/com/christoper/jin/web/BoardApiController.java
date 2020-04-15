@@ -40,4 +40,10 @@ public class BoardApiController {
   public BoardDto get(@PathVariable Long id){
     return boardService.get(id);
   }
+
+  @DeleteMapping("/{id}")
+  public Long delete(@PathVariable Long id){
+    boardService.remove(id);
+    return id;
+  }
 }

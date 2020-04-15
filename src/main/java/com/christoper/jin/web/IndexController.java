@@ -6,9 +6,7 @@ import com.christoper.jin.web.service.IndexService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Class IndexController
@@ -26,10 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequiredArgsConstructor
 @Controller
+@RequestMapping("/board")
 public class IndexController {
   private final IndexService indexService;
   private final BoardService boardService;
-  @GetMapping("/")
+  @GetMapping("")
   public String main(Model model){
     model.addAttribute("boards", boardService.getList());
     return "index";
@@ -38,6 +37,12 @@ public class IndexController {
   @GetMapping("/register")
   public String register(){
     return "register";
+  }
+
+  @GetMapping("/update/{id}")
+  public String modify(@PathVariable Long id, Model model){
+    model.addAttribute("board", boardService.get(id));
+    return "update";
   }
 
   @GetMapping("/index/dto")

@@ -4,19 +4,19 @@
     <form onsubmit="return false;">
         <div class="form-group">
             <label for="inputTitle">제목</label>
-            <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp">
+            <input type="text" class="form-control" id="inputTitle" aria-describedby="titleHelp" value="{{board.title}}">
             <small id="titleHelp" class="form-text text-muted">제목을 입력하세요~</small>
         </div>
         <div class="form-group">
             <label for="inputAuthor">작성자</label>
-            <input type="email" class="form-control" id="inputAuthor">
+            <input type="email" class="form-control" id="inputAuthor" value="{{board.author}}" readonly>
         </div>
         <div class="form-group">
             <label for="inputContent">내용</label>
-            <textarea class="form-control" id="inputContent"></textarea>
+            <textarea class="form-control" id="inputContent">{{board.content}}</textarea>
         </div>
-        <button type="button" class="btn btn-primary" id="btn-save">등록</button>
-        <a href="/board" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-update" data-id="{{board.id}}">수정</button>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
     </form>
 </div>
 {{>layout/footer}}

@@ -52,4 +52,9 @@ public class BoardService {
     List<Board> boardList = repository.findAll(Sort.by(Sort.Order.desc("id")));
     return boardList.stream().map(BoardDto::new).collect(Collectors.toList());
   }
+
+  public void remove(Long id) {
+    Board board = repository.findById(id).orElseThrow(() -> new RuntimeException("없다이."));
+    repository.delete(board);
+  }
 }

@@ -23,6 +23,8 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class BoardDto {
+  private Long id;
+
   private String title;
 
   private String content;
@@ -41,5 +43,6 @@ public class BoardDto {
     this.title = board.getTitle();
     this.content = board.getContent();
     this.author = board.getAuthor();
+    this.id = board.getId();
   }
 }
