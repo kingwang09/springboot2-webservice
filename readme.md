@@ -14,3 +14,4 @@
   - spring.security.oauth2.client.registration.google.client-secret={클라이언트-Secret 비밀번호}
   - spring.security.oauth2.client.registration.google.scope=profile,email
 - Google OAuth2 구현
+- 왜 Git 활동이력이 안남는가
