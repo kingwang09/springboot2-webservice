@@ -8,3 +8,8 @@
   - 수정 기능 완료
   - 조회 기능 완료
 
+#### 2-Day
+- Spring-Security with OAuth2
+  - spring.security.oauth2.client.registration.google.client-id={클라이언트-ID}
+  - spring.security.oauth2.client.registration.google.client-secret={클라이언트-Secret 비밀번호}
+  - spring.security.oauth2.client.registration.google.scope=profile,email

@@ -18,7 +18,7 @@ import lombok.*;
  * ------------------------------------------------------------------------
  * 2020. 4. 14. || 진형은 || 최초생성
  */
-@Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

@@ -29,7 +29,7 @@ import static org.hamcrest.Matchers.is;
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest //contoller만 테스트 가능함...
-public class IndexControllerTest {
+public class BoardControllerTest {
 
   @Autowired
   private MockMvc mvc;
