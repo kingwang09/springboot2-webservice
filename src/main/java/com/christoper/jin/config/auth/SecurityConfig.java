@@ -29,7 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     http
             .csrf().disable()
             .headers().frameOptions().disable() //H2-Console을 위해 disable
-
+            .and()
+              .oauth2Login().defaultSuccessUrl("/")
             .and()
               .authorizeRequests() //URL별 권한관리
               .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll() //해당 URL은 모두 허용

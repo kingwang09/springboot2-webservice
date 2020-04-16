@@ -28,7 +28,7 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
   private final HttpSession httpSession;
-  @GetMapping("")
+  @GetMapping("/")
   public String index(Model model, @LoginUser SessionUser user){
     model.addAttribute("user", user);
     return "index";
