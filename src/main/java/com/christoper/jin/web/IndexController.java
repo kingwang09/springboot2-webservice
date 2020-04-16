@@ -1,5 +1,6 @@
 package com.christoper.jin.web;
 
+import com.christoper.jin.config.auth.LoginUser;
 import com.christoper.jin.config.auth.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -28,8 +29,7 @@ public class IndexController {
 
   private final HttpSession httpSession;
   @GetMapping("")
-  public String index(Model model){
-    SessionUser user = (SessionUser) httpSession.getAttribute("user");
+  public String index(Model model, @LoginUser SessionUser user){
     model.addAttribute("user", user);
     return "index";
   }

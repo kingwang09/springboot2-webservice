@@ -22,23 +22,22 @@ public class CSVReWriter {
 
   @Test
   public void 가상계좌관련_CSV_ReWriter() throws IOException {
-    BufferedReader reader = new BufferedReader(new FileReader("/Users/hyungeun.jin/virtualAccount.csv"));
+    BufferedReader reader = new BufferedReader(new FileReader("/Users/hyungeun.jin/ked/KED5002_kosdak.csv"));
 
     StringBuilder result = new StringBuilder();
     long index = 100001;
     String line = null;
     while( (line = reader.readLine()) != null){
-      String[] values = line.split("[,]");
+      String[] values = line.split("[|]");
       result
-              .append("088").append(",")
-              .append(values[1].trim()).append(",")
-              .append("186712")
+              .append("'").append(values[0]).append("'")
+              .append(",")
               .append(System.lineSeparator());
       index++;
     }
     System.out.println(index);
     System.out.println(result.toString());
-    BufferedWriter writer = new BufferedWriter((new FileWriter("/Users/hyungeun.jin/virtualAccountBucketList.csv")));
+    BufferedWriter writer = new BufferedWriter((new FileWriter("/Users/hyungeun.jin/KED5002_kosdak.csv")));
     writer.write(result.toString());
     writer.flush();
   }
