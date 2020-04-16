@@ -16,3 +16,9 @@
 - Google OAuth2 구현
 - 왜 Git 활동이력이 안남는가
 - 이거 git config email로 활동이력을 추적하는듯함.
+
+
+#### 3-Day
+- Spring-Session-JDBC 적용
+- Naver, Kakao OAuth2 적용
+    - 듸지는줄 알았음....
