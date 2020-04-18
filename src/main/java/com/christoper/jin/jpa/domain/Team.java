@@ -1,13 +1,15 @@
 package com.christoper.jin.jpa.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * @Class OrderItem
+ * @Class Team
  * @Description
  * @Author hyungeun.jin
  * @Since 2020. 4. 18.
@@ -23,20 +25,18 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class OrderItem {
+public class Team {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private long id;
 
-  @Setter
-  @ManyToOne
-  private Order order;//연관관계 주인
+  private String name;
 
-  @Setter
-  @ManyToOne
-  private Item item;//연관관계 주인
+  @OneToMany(mappedBy = "team")
+  private List<Member> memberList = new ArrayList<>();
 
-  private long orderPrice;
-
-  private int count;
+  @Builder
+  public Team(String name){
+    this.name = name;
+  }
 }

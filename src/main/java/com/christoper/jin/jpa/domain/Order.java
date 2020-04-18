@@ -3,6 +3,7 @@ package com.christoper.jin.jpa.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -29,16 +30,16 @@ public class Order {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @ManyToOne
-  private Member member;
-
   private LocalDateTime orderDate;
 
   private String orderStatus; //enum
 
+  @Setter
+  @ManyToOne
+  private Member member;//단방향
+
   @Builder
-  public Order(Member member, LocalDateTime orderDate, String orderStatus){
-    this.member = member;
+  public Order(LocalDateTime orderDate, String orderStatus){
     this.orderDate = orderDate;
     this.orderStatus = orderStatus;
   }

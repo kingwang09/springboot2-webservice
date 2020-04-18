@@ -1,14 +1,8 @@
 package com.christoper.jin.jpa.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @Class Member
@@ -25,8 +19,8 @@ import javax.persistence.Id;
  * 2020. 4. 18. || 진형은 || 최초생성
  */
 @Getter
-@Entity
 @NoArgsConstructor
+@Entity
 public class Member {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,11 +34,25 @@ public class Member {
 
   private String zipCode;
 
+  @Setter
+  @ManyToOne
+  private Team team;
+
   @Builder
   public Member(String name, String city, String street, String zipCode){
     this.name = name;
     this.city = city;
     this.street = street;
     this.zipCode = zipCode;
+  }
+
+  public void setTeam(Team team){
+    this.team = team;
+
+    //양방향 연관관계일 때 객체지향 관점에서 추가 작업
+    if(team.getMemberList() != null){
+      team.getMemberList().remove(this);
+    }
+    team.getMemberList().add(this);
   }
 }

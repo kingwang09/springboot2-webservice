@@ -1,13 +1,14 @@
 package com.christoper.jin.jpa;
 
-import com.christoper.jin.jpa.domain.ItemRepository;
-import com.christoper.jin.jpa.domain.MemberRepository;
-import com.christoper.jin.jpa.domain.OrderItemRepository;
-import com.christoper.jin.jpa.domain.OrderRepository;
+import com.christoper.jin.jpa.domain.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /**
  * @Class JpaTest
@@ -24,10 +25,14 @@ import org.springframework.boot.test.context.SpringBootTest;
  * 2020. 4. 18. || 진형은 || 최초생성
  */
 @Slf4j
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class JpaTest {
   @Autowired
   private MemberRepository memberRepository;
+
+  @Autowired
+  private TeamRepository teamRepository;
 
   @Autowired
   private OrderRepository orderRepository;
@@ -40,6 +45,25 @@ public class JpaTest {
 
 
   @Test
-  public void 모든객체생성(){
+  public void 멤버테스트(){
+    Member member = Member.builder()
+            .name("진형은")
+            .city("경기도")
+            .street("성남시 수정구 태평4동 시민로")
+            .zipCode("1234")
+            .build();
+    Team team = Team.builder().name("개발2랩").build();
+
+    teamRepository.save(team);
+
+    member.setTeam(team);
+    memberRepository.save(member);
+
+
+    List<Member> memberList = memberRepository.findAll();
+    for(Member m : memberList){
+      log.info("이름 : {}", m.getName());
+      log.info("팀이름 : {}", m.getTeam().getName());
+    }
   }
 }
