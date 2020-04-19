@@ -1,4 +1,4 @@
-package com.christoper.jin.web.constant.startup.corporation;
+package com.christoper.jin.web.constant.stock.corporation;
 
 
 import lombok.AllArgsConstructor;

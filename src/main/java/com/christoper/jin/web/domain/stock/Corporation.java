@@ -1,6 +1,6 @@
-package com.christoper.jin.web.domain.startup;
+package com.christoper.jin.web.domain.stock;
 
-import com.christoper.jin.web.constant.startup.corporation.*;
+import com.christoper.jin.web.constant.stock.corporation.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
