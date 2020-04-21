@@ -21,11 +21,10 @@ import java.io.*;
 public class CSVReWriter {
 
   @Test
-  public void 가상계좌관련_CSV_ReWriter() throws IOException {
-    BufferedReader reader = new BufferedReader(new FileReader("/Users/hyungeun.jin/ked/KED5002_kosdak.csv"));
+  public void csv_ReWriter() throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader("/Users/hyungeun.jin/ked/master/KED5002_normal_converted.csv"));
 
     StringBuilder result = new StringBuilder();
-    long index = 100001;
     String line = null;
     while( (line = reader.readLine()) != null){
       String[] values = line.split("[|]");
@@ -33,11 +32,9 @@ public class CSVReWriter {
               .append("'").append(values[0]).append("'")
               .append(",")
               .append(System.lineSeparator());
-      index++;
     }
-    System.out.println(index);
     System.out.println(result.toString());
-    BufferedWriter writer = new BufferedWriter((new FileWriter("/Users/hyungeun.jin/KED5002_kosdak.csv")));
+    BufferedWriter writer = new BufferedWriter((new FileWriter("/Users/hyungeun.jin/KED5002_IsDeleted_government.csv")));
     writer.write(result.toString());
     writer.flush();
   }
