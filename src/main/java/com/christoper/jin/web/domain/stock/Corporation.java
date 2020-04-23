@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @Class Corporation
@@ -29,6 +31,8 @@ public class Corporation {
   @Id
   @GeneratedValue(strategy= GenerationType.IDENTITY)
   private Long id;
+
+  @Column(name="corporation_code")
   private String corporationCode;
   private String name;
   private String nameByTrade;
@@ -103,6 +107,8 @@ public class Corporation {
   private String referenceCorporationCode;
   private LocalDateTime referenceCorporationEstablishDate;
 
+  @OneToMany(mappedBy="corporation")
+  private List<Financial> financialList = new LinkedList<>();
 
   @Builder
   public Corporation(String corporationCode,
