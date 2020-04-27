@@ -1,3 +1,11 @@
+# Todo List
+## Board 서비스
+- 이미지/첨부파일 기능 추가
+
+## 기업 서비스
+- 기본 조회 로직 구현
+
+
 ### SpringBoot2 + Spring-Data-JPA
 
 #### 1-Day
