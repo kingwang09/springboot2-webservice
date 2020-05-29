@@ -22,19 +22,20 @@ public class CSVReWriter {
 
   @Test
   public void csv_ReWriter() throws IOException {
-    BufferedReader reader = new BufferedReader(new FileReader("/Users/hyungeun.jin/ked/master/KED5002_normal_converted.csv"));
+    BufferedReader reader = new BufferedReader(new FileReader("/Users/hyungeun.jin/isDeleted.csv"));
 
     StringBuilder result = new StringBuilder();
     String line = null;
     while( (line = reader.readLine()) != null){
-      String[] values = line.split("[|]");
       result
-              .append("'").append(values[0]).append("'")
+              .append("'")
+              .append(line)
+              .append("'")
               .append(",")
               .append(System.lineSeparator());
     }
     System.out.println(result.toString());
-    BufferedWriter writer = new BufferedWriter((new FileWriter("/Users/hyungeun.jin/KED5002_IsDeleted_government.csv")));
+    BufferedWriter writer = new BufferedWriter((new FileWriter("/Users/hyungeun.jin/isDeleted_rewrite.csv")));
     writer.write(result.toString());
     writer.flush();
   }
