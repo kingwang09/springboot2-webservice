@@ -32,4 +32,9 @@
     - 듸지는줄 알았음....
 
 
+## 무료나눔 알림 서비스
+### java 실행 명령어
 nohup java -jar -Dspring.config.location=classpath:/application.properties,/path/application-oauth.properties springboot2-webservice-1.0-SNAPSHOT.jar&
+
+### crontab 등록: 1분마다
+* * * * * /app/junggonara.sh
