@@ -30,3 +30,6 @@
 - Spring-Session-JDBC 적용
 - Naver, Kakao OAuth2 적용
     - 듸지는줄 알았음....
+
+
+nohup java -jar -Dspring.config.location=classpath:/application.properties,/path/application-oauth.properties springboot2-webservice-1.0-SNAPSHOT.jar
