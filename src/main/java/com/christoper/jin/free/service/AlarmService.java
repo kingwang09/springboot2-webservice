@@ -3,6 +3,7 @@ package com.christoper.jin.free.service;
 import com.christoper.jin.free.domain.FreeArticle;
 import com.christoper.jin.notification.constant.WebHook;
 import com.christoper.jin.notification.slack.model.SlackBase;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -25,12 +26,14 @@ import org.springframework.web.client.RestTemplate;
  */
 @Service
 public class AlarmService {
+  @Value("${slack.id}")
+  private String slackId;
 
   public void send(FreeArticle freeArticle) {
     RestTemplate restTemplate = new RestTemplate();
     HttpHeaders headers = new HttpHeaders();
     headers.set(HttpHeaders.CONTENT_TYPE, "application/json");
     SlackBase params = SlackBase.builder().text(freeArticle.getTitle()+", "+freeArticle.getDetailLink()).build();
-    restTemplate.exchange(WebHook.SLACK_FREE_MARKET.getWebbHookURL(), HttpMethod.POST, new HttpEntity<SlackBase>(params, headers), (Class<Object>) null);
+    restTemplate.exchange(WebHook.SLACK_FREE_MARKET.getWebbHookURL()+slackId, HttpMethod.POST, new HttpEntity<SlackBase>(params, headers), (Class<Object>) null);
   }
 }

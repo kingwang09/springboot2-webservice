@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum WebHook {
-  SLACK_FREE_MARKET("https://hooks.slack.com/services/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");
+  SLACK_FREE_MARKET("https://hooks.slack.com/services/");
 
   private String webbHookURL;
 
