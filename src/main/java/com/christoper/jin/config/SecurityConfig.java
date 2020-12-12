@@ -1,5 +1,6 @@
-package com.christoper.jin.config.auth;
+package com.christoper.jin.config;
 
+import com.christoper.jin.config.auth.CustomOAuth2UserService;
 import com.christoper.jin.web.user.domain.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable().headers().frameOptions().disable() //H2-Console을 위해 disable
             .and()
               .authorizeRequests() //URL별 권한관리
-              .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/scrapper/**", "/login/form").permitAll() //해당 URL은 모두 허용
+              .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/scrapper/**", "/login/form", "/greeting").permitAll() //해당 URL은 모두 허용
               .antMatchers("/api/v1/**").hasRole(Role.USER.name()) //API호출은 USER 권한있는 경우만 허용
               .anyRequest().authenticated() //나머지 URL에 대해서는 로그인한 사용자만 허용
             .and()

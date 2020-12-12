@@ -3,6 +3,8 @@ package com.christoper.jin.web;
 import com.christoper.jin.web.board.domain.BoardRepository;
 import com.christoper.jin.web.board.dto.BoardDto;
 import com.christoper.jin.web.board.service.BoardService;
+import com.christoper.jin.web.user.domain.Role;
+import com.christoper.jin.web.user.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -16,6 +18,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -66,6 +69,7 @@ public class BoardApiControllerTest {
 
 
   @Test
+  @WithMockUser(roles= "USER")
   public void 게시글등록하기(){
     String title = "컨트롤러 테스트";
     String content = "테스트는 위대하다";
@@ -81,6 +85,7 @@ public class BoardApiControllerTest {
   }
 
   @Test
+  @WithMockUser(roles= "USER")
   public void 게시글_수정하기(){
     String title = "컨트롤러 테스트";
     String content = "테스트는 위대하다";
