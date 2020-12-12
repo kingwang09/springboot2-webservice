@@ -1,8 +1,8 @@
 package com.christoper.jin.web;
 
-import com.christoper.jin.web.domain.board.BoardRepository;
-import com.christoper.jin.web.dto.BoardDto;
-import com.christoper.jin.web.service.BoardService;
+import com.christoper.jin.web.board.domain.board.BoardRepository;
+import com.christoper.jin.web.board.dto.BoardDto;
+import com.christoper.jin.web.board.service.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;

@@ -2,8 +2,8 @@ package com.christoper.jin.config.auth;
 
 import com.christoper.jin.config.auth.dto.OAuthAttributes;
 import com.christoper.jin.config.auth.dto.SessionUser;
-import com.christoper.jin.web.domain.user.User;
-import com.christoper.jin.web.domain.user.UserRepository;
+import com.christoper.jin.web.board.domain.user.User;
+import com.christoper.jin.web.board.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

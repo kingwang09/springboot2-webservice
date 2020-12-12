@@ -1,6 +1,6 @@
 package com.christoper.jin.config.auth.dto;
 
-import com.christoper.jin.web.domain.user.User;
+import com.christoper.jin.web.board.domain.user.User;
 import lombok.Getter;
 
 import java.io.Serializable;
