@@ -1,0 +1,66 @@
+server:
+  port: 9999
+
+spring:
+  profiles:
+    include: oauth
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    show_sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        globally_quoted_identifiers: true
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  session:
+    store: jdbc
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: {google-client-id}
+            clientSecret: {google-secret}
+            scope: profile,email
+          naver:
+            clientId: {naver-client-id}
+            clientSecret: {naver-secret}
+            redirectUriTemplate: '{baseUrl}/{action}/oauth2/code/{registrationId}'
+            authorizationGrantType: authorization_code
+            scope: name,email,profile_image
+            clientName: Naver
+          kakao:
+            clientId: {kakao-client-id}
+            clientSecret: {kakao-secret}
+            redirectUriTemplate: '{baseUrl}/{action}/oauth2/code/{registrationId}'
+            authorizationGrantType: authorization_code
+            scope: profile,account_email
+            clientName: Kakao
+            clientAuthenticationMethod: POST #KAKAO의 경우, /oauth/token 전송시 client-id와 client-secret를 사용하므로 client-authentication-method를 POST로 지정해야함. (default basic)
+        provider:
+          naver:
+            authorizationUri: https://nid.naver.com/oauth2.0/authorize
+            tokenUri: https://nid.naver.com/oauth2.0/token
+            userInfoUri: https://openapi.naver.com/v1/nid/me
+            userNameAttribute: response
+          kakao:
+            authorizationUri: https://kauth.kakao.com/oauth/authorize
+            tokenUri: https://kauth.kakao.com/oauth/token
+            userInfoUri: https://kapi.kakao.com/v2/user/me
+            userNameAttribute: id
+logging:
+  level:
+    com.christoper: DEBUG
+    org.hinbernate.SQL: DEBUG
+    org.hibernate.type.description.sql: TRACE
+slack:
+  id: {slack-auth-key}
+
