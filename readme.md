@@ -38,3 +38,6 @@ nohup java -jar -Dspring.config.location=classpath:/application.properties,/path
 
 ### crontab 등록: 1분마다
 * * * * * /app/junggonara.sh
+
+### 테스트 코드
+테스트 코드의 중요성을 더욱 더 깨달음.
