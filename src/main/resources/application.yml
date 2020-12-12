@@ -19,7 +19,7 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
   h2:
     console:
-      enable: true
+      enabled: true
   session:
     store: jdbc
 logging:
