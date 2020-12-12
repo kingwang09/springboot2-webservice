@@ -1,6 +1,6 @@
 package com.christoper.jin.web;
 
-import com.christoper.jin.web.board.domain.board.BoardRepository;
+import com.christoper.jin.web.board.domain.BoardRepository;
 import com.christoper.jin.web.board.dto.BoardDto;
 import com.christoper.jin.web.board.service.BoardService;
 import lombok.extern.slf4j.Slf4j;

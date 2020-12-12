@@ -1,6 +1,6 @@
 package com.christoper.jin.web.board.dto;
 
-import com.christoper.jin.web.board.domain.board.Board;
+import com.christoper.jin.web.board.domain.Board;
 import lombok.*;
 
 /**

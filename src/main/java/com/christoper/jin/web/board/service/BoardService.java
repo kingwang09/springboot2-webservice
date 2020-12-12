@@ -1,7 +1,7 @@
 package com.christoper.jin.web.board.service;
 
-import com.christoper.jin.web.board.domain.board.Board;
-import com.christoper.jin.web.board.domain.board.BoardRepository;
+import com.christoper.jin.web.board.domain.Board;
+import com.christoper.jin.web.board.domain.BoardRepository;
 import com.christoper.jin.web.board.dto.BoardDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;

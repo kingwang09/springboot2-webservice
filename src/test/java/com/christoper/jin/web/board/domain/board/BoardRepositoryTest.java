@@ -1,5 +1,7 @@
 package com.christoper.jin.web.board.domain.board;
 
+import com.christoper.jin.web.board.domain.Board;
+import com.christoper.jin.web.board.domain.BoardRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Test;

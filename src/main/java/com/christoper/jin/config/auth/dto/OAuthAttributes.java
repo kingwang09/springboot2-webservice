@@ -1,7 +1,7 @@
 package com.christoper.jin.config.auth.dto;
 
-import com.christoper.jin.web.board.domain.user.Role;
-import com.christoper.jin.web.board.domain.user.User;
+import com.christoper.jin.web.user.domain.Role;
+import com.christoper.jin.web.user.domain.User;
 import lombok.Builder;
 import lombok.Getter;
 
